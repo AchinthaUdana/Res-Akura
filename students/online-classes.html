@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Classes | Akura Student</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .class-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 24px;
+            border: 1px solid var(--glass-border);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .class-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .class-badge {
+            align-self: flex-start;
+            padding: 6px 12px;
+            border-radius: 30px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .badge-live { background: rgba(239, 68, 68, 0.1); color: #ef4444; }
+        .badge-upcoming { background: rgba(79, 70, 229, 0.1); color: #4f46e5; }
+        
+        .class-info h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+        .class-meta { display: flex; flex-wrap: wrap; gap: 16px; font-size: 13px; color: var(--text-muted); }
+        .class-meta span { display: flex; align-items: center; gap: 6px; }
+        
+        .zoom-section {
+            margin-top: 10px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .join-btn {
+            background: #2D8CFF; /* Zoom Blue */
+            color: white;
+            padding: 10px 24px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.3s;
+        }
+        .join-btn:hover { background: #1a73e8; }
+        
+        .no-classes {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+    <div class="student-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-wrapper">
+                    <div class="logo-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <span class="logo-text">Akura LMS</span>
+                </div>
+            </div>
+            <div class="sidebar-menu">
+                <a href="index.html" class="menu-item"><i class="fa-solid fa-house"></i> <span>Dashboard</span></a>
+                <a href="profile.html" class="menu-item"><i class="fa-solid fa-user"></i> <span>Profile</span></a>
+                <a href="payments.html" class="menu-item"><i class="fa-solid fa-credit-card"></i> <span>Payments</span></a>
+                
+                <div class="menu-title">Academic</div>
+                <a href="lessons.html" class="menu-item"><i class="fa-solid fa-play"></i> <span>Lessons</span></a>
+                <a href="notes.html" class="menu-item"><i class="fa-solid fa-file-pdf"></i> <span>Notes</span></a>
+                <a href="online-classes.html" class="menu-item active"><i class="fa-solid fa-headset"></i> <span>Online Classes</span></a>
+                <a href="online-papers.html" class="menu-item"><i class="fa-solid fa-file-lines"></i> <span>Online Papers</span></a>
+                <a href="exams.html" class="menu-item"><i class="fa-solid fa-pen-to-square"></i> <span>Exams</span></a>
+                
+                <div class="menu-title">Performance</div>
+                <a href="marks.html" class="menu-item"><i class="fa-solid fa-chart-simple"></i> <span>Marks</span></a>
+                <a href="rankings.html" class="menu-item"><i class="fa-solid fa-trophy"></i> <span>Rankings</span></a>
+                
+                <div class="menu-title">Utilities</div>
+                <a href="timetable.html" class="menu-item"><i class="fa-solid fa-calendar-days"></i> <span>Timetable</span></a>
+                <a href="notifications.html" class="menu-item"><i class="fa-solid fa-bell"></i> <span>Notifications</span></a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="navbar">
+                <div class="nav-left">
+                    <button id="toggleSidebar" class="toggle-btn"><i class="fa-solid fa-bars"></i></button>
+                    <h2 class="page-title">Online Live Classes</h2>
+                </div>
+            </header>
+            
+            <div class="page-content">
+                <div class="section-header">
+                    <h3 class="section-title">Active & Upcoming Sessions</h3>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 24px;">
+                    <!-- Live Now Card -->
+                    <div class="class-card">
+                        <div class="class-badge badge-live"><i class="fa-solid fa-circle"></i> Live Now</div>
+                        <div class="class-info">
+                            <h3>Modern Physics - Quantum Revision</h3>
+                            <div class="class-meta">
+                                <span><i class="fa-solid fa-user-tie"></i> Dr. Sampath Bandara</span>
+                                <span><i class="fa-solid fa-clock"></i> Started at 08:00 PM</span>
+                            </div>
+                        </div>
+                        <div class="zoom-section">
+                            <div style="font-size: 13px; color: var(--text-muted);">
+                                <strong>ID:</strong> 123 456 789<br>
+                                <strong>Pass:</strong> akura123
+                            </div>
+                            <a href="#" class="join-btn"><i class="fa-solid fa-video"></i> Join Zoom</a>
+                        </div>
+                    </div>
+
+                    <!-- Upcoming Card -->
+                    <div class="class-card">
+                        <div class="class-badge badge-upcoming">Upcoming</div>
+                        <div class="class-info">
+                            <h3>Sinhala Literature - Model Paper Discussion</h3>
+                            <div class="class-meta">
+                                <span><i class="fa-solid fa-calendar"></i> May 12, 2026</span>
+                                <span><i class="fa-solid fa-clock"></i> 04:00 PM - 06:00 PM</span>
+                            </div>
+                        </div>
+                        <div class="zoom-section">
+                            <span style="font-size: 13px; color: var(--text-muted);">Link will be active 15 mins before</span>
+                            <button class="join-btn" style="opacity: 0.6; cursor: not-allowed;" disabled><i class="fa-solid fa-video"></i> Join Zoom</button>
+                        </div>
+                    </div>
+
+                    <!-- Upcoming Card 2 -->
+                    <div class="class-card">
+                        <div class="class-badge badge-upcoming">Upcoming</div>
+                        <div class="class-info">
+                            <h3>Combined Maths - Calculus Session</h3>
+                            <div class="class-meta">
+                                <span><i class="fa-solid fa-calendar"></i> May 15, 2026</span>
+                                <span><i class="fa-solid fa-clock"></i> 07:00 PM</span>
+                            </div>
+                        </div>
+                        <div class="zoom-section">
+                            <span style="font-size: 13px; color: var(--text-muted);">Link will be active 15 mins before</span>
+                            <button class="join-btn" style="opacity: 0.6; cursor: not-allowed;" disabled><i class="fa-solid fa-video"></i> Join Zoom</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>

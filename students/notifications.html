@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications | Akura Student</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .notif-card {
+            background: white;
+            padding: 20px;
+            border-radius: 16px;
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+            margin-bottom: 16px;
+            display: flex;
+            gap: 20px;
+            transition: all 0.3s;
+            position: relative;
+        }
+        .notif-card.unread { border-left: 4px solid var(--primary-color); background: rgba(79, 70, 229, 0.01); }
+        .notif-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        .notif-content h4 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+        .notif-content p { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+        .notif-time { font-size: 11px; color: var(--text-muted); margin-top: 8px; }
+        .unread-dot {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 8px;
+            height: 8px;
+            background: var(--primary-color);
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="student-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-wrapper">
+                    <div class="logo-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <span class="logo-text">Akura LMS</span>
+                </div>
+            </div>
+            <div class="sidebar-menu">
+                <a href="index.html" class="menu-item"><i class="fa-solid fa-house"></i> <span>Dashboard</span></a>
+                <a href="profile.html" class="menu-item"><i class="fa-solid fa-user"></i> <span>Profile</span></a>
+                <a href="payments.html" class="menu-item"><i class="fa-solid fa-credit-card"></i> <span>Payments</span></a>
+                <div class="menu-title">Academic</div>
+                <a href="lessons.html" class="menu-item"><i class="fa-solid fa-play"></i> <span>Lessons</span></a>
+                <a href="notes.html" class="menu-item"><i class="fa-solid fa-file-pdf"></i> <span>Notes</span></a>
+                <a href="online-classes.html" class="menu-item"><i class="fa-solid fa-headset"></i> <span>Online Classes</span></a>
+                <a href="online-papers.html" class="menu-item"><i class="fa-solid fa-file-lines"></i> <span>Online Papers</span></a>
+                <a href="exams.html" class="menu-item"><i class="fa-solid fa-pen-to-square"></i> <span>Exams</span></a>
+                <div class="menu-title">Performance</div>
+                <a href="marks.html" class="menu-item"><i class="fa-solid fa-chart-simple"></i> <span>Marks</span></a>
+                <a href="rankings.html" class="menu-item"><i class="fa-solid fa-trophy"></i> <span>Rankings</span></a>
+                <div class="menu-title">Utilities</div>
+                <a href="timetable.html" class="menu-item"><i class="fa-solid fa-calendar-days"></i> <span>Timetable</span></a>
+                <a href="notifications.html" class="menu-item active"><i class="fa-solid fa-bell"></i> <span>Notifications</span></a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="navbar">
+                <div class="nav-left">
+                    <button id="toggleSidebar" class="toggle-btn"><i class="fa-solid fa-bars"></i></button>
+                    <h2 class="page-title">Notifications</h2>
+                </div>
+                <div class="nav-right">
+                    <button class="btn btn-secondary btn-sm">Mark all as read</button>
+                </div>
+            </header>
+            
+            <div class="page-content">
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <!-- Unread Notif -->
+                    <div class="notif-card unread">
+                        <div class="unread-dot"></div>
+                        <div class="notif-icon" style="background: rgba(79, 70, 229, 0.1); color: var(--primary-color);">
+                            <i class="fa-solid fa-file-lines"></i>
+                        </div>
+                        <div class="notif-content">
+                            <h4>New Online Paper Released</h4>
+                            <p>Physics Unit 04 MCQ paper is now available for your batch. Please complete it before May 10.</p>
+                            <div class="notif-time">2 hours ago</div>
+                        </div>
+                    </div>
+
+                    <!-- Read Notif -->
+                    <div class="notif-card">
+                        <div class="notif-icon" style="background: rgba(16, 185, 129, 0.1); color: var(--success-color);">
+                            <i class="fa-solid fa-credit-card"></i>
+                        </div>
+                        <div class="notif-content">
+                            <h4>Payment Verified</h4>
+                            <p>Your payment slip for April 2026 has been successfully verified. Full access to materials is maintained.</p>
+                            <div class="notif-time">Yesterday, 10:30 AM</div>
+                        </div>
+                    </div>
+
+                    <div class="notif-card">
+                        <div class="notif-icon" style="background: rgba(59, 130, 246, 0.1); color: var(--info-color);">
+                            <i class="fa-solid fa-video"></i>
+                        </div>
+                        <div class="notif-content">
+                            <h4>New Lesson: Modern Physics</h4>
+                            <p>A new recorded session for Modern Physics Part 01 has been added to your lessons tab.</p>
+                            <div class="notif-time">2 days ago</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>

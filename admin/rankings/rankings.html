@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rankings | Akura Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/admin-style.css">
+</head>
+<body>
+    <div class="admin-container">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-wrapper">
+                    <div class="logo-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <span class="logo-text">Akura Admin</span>
+                </div>
+                <button class="close-sidebar" id="closeSidebar"><i class="fa-solid fa-times"></i></button>
+            </div>
+            <div class="sidebar-menu">
+                <a href="../index.html" class="menu-item"><i class="fa-solid fa-chart-pie"></i> <span>Dashboard</span></a>
+                <div class="menu-title">Management</div>
+                <a href="../students/list.html" class="menu-item"><i class="fa-solid fa-users"></i> <span>Students</span></a>
+                <a href="../batches/list.html" class="menu-item"><i class="fa-solid fa-layer-group"></i> <span>Batches</span></a>
+                <a href="../payments/list.html" class="menu-item"><i class="fa-solid fa-file-invoice-dollar"></i> <span>Payments</span></a>
+                <div class="menu-title">Academics</div>
+                <a href="../lessons/list.html" class="menu-item"><i class="fa-solid fa-video"></i> <span>Lessons</span></a>
+                <a href="../notes/list.html" class="menu-item"><i class="fa-solid fa-book"></i> <span>Notes</span></a>
+                <a href="../online-papers/list.html" class="menu-item"><i class="fa-solid fa-file-alt"></i> <span>Online Papers</span></a>
+                <a href="../exams/list.html" class="menu-item"><i class="fa-solid fa-pen-to-square"></i> <span>Exams</span></a>
+                <a href="../marks/list.html" class="menu-item"><i class="fa-solid fa-check-double"></i> <span>Marks</span></a>
+                <a href="../rankings/rankings.html" class="menu-item active"><i class="fa-solid fa-trophy"></i> <span>Rankings</span></a>
+                <div class="menu-title">Extras</div>
+                <a href="../reminders/list.html" class="menu-item"><i class="fa-solid fa-bell"></i> <span>Reminders</span></a>
+                <a href="../timetable/timetable.html" class="menu-item"><i class="fa-solid fa-calendar-alt"></i> <span>Timetable</span></a>
+                <a href="../settings/settings.html" class="menu-item"><i class="fa-solid fa-gear"></i> <span>Settings</span></a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="navbar">
+                <div class="nav-left">
+                    <button id="toggleSidebar" class="toggle-btn"><i class="fa-solid fa-bars"></i></button>
+                    <h2 class="page-title">Rankings</h2>
+                </div>
+                <div class="nav-right">
+                    <div class="nav-item profile-dropdown">
+                        <img src="https://ui-avatars.com/api/?name=Admin+User&background=0D8ABC&color=fff" alt="Admin" class="profile-img">
+                        <div class="profile-info">
+                            <span class="admin-name">Admin User</span>
+                            <span class="admin-role">Super Admin</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-down drop-icon"></i>
+                        <div class="dropdown-menu">
+                            <a href="../login.html" class="logout-btn"><i class="fa-solid fa-sign-out-alt"></i> Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="page-content">
+                <div class="section-header">
+                    <h2 class="section-title">Batch Rankings</h2>
+                    <button class="btn btn-primary"><i class="fa-solid fa-download"></i> Export PDF</button>
+                </div>
+
+                <div class="table-container">
+                    <div class="table-controls">
+                        <div class="filter-group">
+                            <select class="filter-select">
+                                <option value="">Select Batch</option>
+                                <option value="2026">2026 A/L</option>
+                            </select>
+                            <select class="filter-select">
+                                <option value="">Select Exam</option>
+                                <option value="1">Physics Unit 4 MCQ</option>
+                            </select>
+                            <button class="btn btn-secondary">Generate Ranking</button>
+                        </div>
+                    </div>
+                    
+                    <div style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); color: white; padding: 24px; border-radius: 16px; margin-bottom: 24px; display: flex; justify-content: space-around; text-align: center;">
+                        <div>
+                            <i class="fa-solid fa-medal" style="font-size: 32px; color: #fbbf24; margin-bottom: 8px;"></i>
+                            <h3>1st Place</h3>
+                            <p>Nuwan Pradeep (95%)</p>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-medal" style="font-size: 32px; color: #e2e8f0; margin-bottom: 8px;"></i>
+                            <h3>2nd Place</h3>
+                            <p>Amaya Perera (92%)</p>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-medal" style="font-size: 32px; color: #b45309; margin-bottom: 8px;"></i>
+                            <h3>3rd Place</h3>
+                            <p>Kamal Silva (88%)</p>
+                        </div>
+                    </div>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Rank</th>
+                                <th>Student Name</th>
+                                <th>Student ID</th>
+                                <th>Marks</th>
+                                <th>Grade</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>1</strong></td>
+                                <td>Nuwan Pradeep</td>
+                                <td>#STU-1001</td>
+                                <td>95</td>
+                                <td><span style="color: #10b981; font-weight: 600;">A</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>2</strong></td>
+                                <td>Amaya Perera</td>
+                                <td>#STU-1002</td>
+                                <td>92</td>
+                                <td><span style="color: #10b981; font-weight: 600;">A</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>3</strong></td>
+                                <td>Kamal Silva</td>
+                                <td>#STU-1003</td>
+                                <td>88</td>
+                                <td><span style="color: #10b981; font-weight: 600;">A</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="../js/admin-script.js"></script>
+</body>
+</html>

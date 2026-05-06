@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lessons | Akura Student</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .lesson-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
+        }
+        .lesson-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--glass-shadow);
+            border: 1px solid var(--glass-border);
+            transition: transform 0.3s;
+        }
+        .lesson-card:hover { transform: translateY(-8px); }
+        .lesson-thumb {
+            width: 100%;
+            height: 180px;
+            background: #000;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .lesson-thumb img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; }
+        .play-overlay {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: var(--primary-color);
+            transition: all 0.3s;
+        }
+        .lesson-card:hover .play-overlay { transform: scale(1.1); background: var(--primary-color); color: white; }
+        .lesson-content { padding: 20px; }
+        .lesson-tag {
+            font-size: 10px;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            display: block;
+        }
+        .lesson-title { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+        .lesson-desc { font-size: 12px; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px; }
+        .new-tag {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--danger-color);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 30px;
+            font-size: 10px;
+            font-weight: 700;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="student-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-wrapper">
+                    <div class="logo-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <span class="logo-text">Akura LMS</span>
+                </div>
+            </div>
+            <div class="sidebar-menu">
+                <a href="index.html" class="menu-item"><i class="fa-solid fa-house"></i> <span>Dashboard</span></a>
+                <a href="profile.html" class="menu-item"><i class="fa-solid fa-user"></i> <span>Profile</span></a>
+                <a href="payments.html" class="menu-item"><i class="fa-solid fa-credit-card"></i> <span>Payments</span></a>
+                <div class="menu-title">Academic</div>
+                <a href="lessons.html" class="menu-item active"><i class="fa-solid fa-play"></i> <span>Lessons</span></a>
+                <a href="notes.html" class="menu-item"><i class="fa-solid fa-file-pdf"></i> <span>Notes</span></a>
+                <a href="online-classes.html" class="menu-item"><i class="fa-solid fa-headset"></i> <span>Online Classes</span></a>
+                <a href="online-papers.html" class="menu-item"><i class="fa-solid fa-file-lines"></i> <span>Online Papers</span></a>
+                <a href="exams.html" class="menu-item"><i class="fa-solid fa-pen-to-square"></i> <span>Exams</span></a>
+                <div class="menu-title">Performance</div>
+                <a href="marks.html" class="menu-item"><i class="fa-solid fa-chart-simple"></i> <span>Marks</span></a>
+                <a href="rankings.html" class="menu-item"><i class="fa-solid fa-trophy"></i> <span>Rankings</span></a>
+                <div class="menu-title">Utilities</div>
+                <a href="timetable.html" class="menu-item"><i class="fa-solid fa-calendar-days"></i> <span>Timetable</span></a>
+                <a href="notifications.html" class="menu-item"><i class="fa-solid fa-bell"></i> <span>Notifications</span></a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="navbar">
+                <div class="nav-left">
+                    <button id="toggleSidebar" class="toggle-btn"><i class="fa-solid fa-bars"></i></button>
+                    <h2 class="page-title">Video Lessons</h2>
+                </div>
+                <div class="nav-right">
+                    <div class="profile-dropdown">
+                        <img src="https://ui-avatars.com/api/?name=Nuwan+Pradeep&background=4f46e5&color=fff" alt="Nuwan" class="profile-img">
+                        <div class="profile-info">
+                            <span class="student-name">Nuwan Pradeep</span>
+                            <span class="student-id">#AKU-000001</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="page-content">
+                <div class="section-header">
+                    <h2 class="section-title">All Lessons</h2>
+                    <div class="search-bar" style="width: 300px; position: relative;">
+                        <input type="text" placeholder="Search lessons..." style="width: 100%; padding: 10px 15px 10px 40px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                        <i class="fa-solid fa-search" style="position: absolute; left: 15px; top: 12px; color: var(--text-muted);"></i>
+                    </div>
+                </div>
+
+                <div class="lesson-grid">
+                    <!-- Lesson 1 -->
+                    <div class="lesson-card">
+                        <div class="lesson-thumb">
+                            <span class="new-tag">NEW</span>
+                            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" alt="Lesson">
+                            <div class="play-overlay"><i class="fa-solid fa-play"></i></div>
+                        </div>
+                        <div class="lesson-content">
+                            <span class="lesson-tag">Physics - Unit 04</span>
+                            <h3 class="lesson-title">Modern Physics Part 01</h3>
+                            <p class="lesson-desc">Introduction to quantum theory, photoelectric effect and atomic models with practical examples.</p>
+                            <div style="display: flex; gap: 10px;">
+                                <a href="#" class="btn btn-primary btn-sm" style="flex: 1; justify-content: center;">Watch Now</a>
+                                <a href="notes.html" class="btn btn-secondary btn-sm" title="Download Notes"><i class="fa-solid fa-file-pdf"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lesson 2 -->
+                    <div class="lesson-card">
+                        <div class="lesson-thumb">
+                            <img src="https://images.unsplash.com/photo-1454165833767-027ff15e4590?auto=format&fit=crop&w=800&q=80" alt="Lesson">
+                            <div class="play-overlay"><i class="fa-solid fa-play"></i></div>
+                        </div>
+                        <div class="lesson-content">
+                            <span class="lesson-tag">Combined Maths</span>
+                            <h3 class="lesson-title">Integration Techniques</h3>
+                            <p class="lesson-desc">Comprehensive guide to integration by parts and substitution methods for complex functions.</p>
+                            <div style="display: flex; gap: 10px;">
+                                <a href="#" class="btn btn-primary btn-sm" style="flex: 1; justify-content: center;">Watch Now</a>
+                                <a href="notes.html" class="btn btn-secondary btn-sm" title="Download Notes"><i class="fa-solid fa-file-pdf"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lesson 3 -->
+                    <div class="lesson-card">
+                        <div class="lesson-thumb">
+                            <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=800&q=80" alt="Lesson">
+                            <div class="play-overlay"><i class="fa-solid fa-play"></i></div>
+                        </div>
+                        <div class="lesson-content">
+                            <span class="lesson-tag">Chemistry - Organic</span>
+                            <h3 class="lesson-title">Reaction Mechanisms</h3>
+                            <p class="lesson-desc">Step-by-step breakdown of SN1 and SN2 reactions in organic chemistry for A/L students.</p>
+                            <div style="display: flex; gap: 10px;">
+                                <a href="#" class="btn btn-primary btn-sm" style="flex: 1; justify-content: center;">Watch Now</a>
+                                <a href="notes.html" class="btn btn-secondary btn-sm" title="Download Notes"><i class="fa-solid fa-file-pdf"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>

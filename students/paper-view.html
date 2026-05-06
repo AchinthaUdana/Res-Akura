@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics MCQ | Akura Student</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .attempt-container {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 24px;
+        }
+        .timer-header {
+            background: white;
+            padding: 15px 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--glass-shadow);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+            border: 1px solid var(--primary-color);
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+        }
+        .timer-display {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--danger-color);
+            font-family: monospace;
+        }
+        .paper-content-area {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--glass-shadow);
+            min-height: 600px;
+        }
+        .question-file {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            border: 1px solid #eee;
+        }
+        .upload-section {
+            background: rgba(79, 70, 229, 0.05);
+            border: 2px dashed var(--primary-color);
+            padding: 40px;
+            text-align: center;
+            border-radius: 20px;
+            margin-top: 30px;
+        }
+        .upload-icon {
+            font-size: 40px;
+            color: var(--primary-color);
+            margin-bottom: 16px;
+        }
+        .instruction-box {
+            background: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 16px;
+            margin-bottom: 24px;
+            border-radius: 4px 12px 12px 4px;
+        }
+        .instruction-box h4 { font-size: 15px; margin-bottom: 8px; color: #92400e; }
+        .instruction-box ul { font-size: 13px; color: #92400e; padding-left: 20px; }
+    </style>
+</head>
+<body>
+    <div class="student-container">
+        <!-- Sidebar hidden during attempt for focus -->
+        
+        <main class="main-content" style="margin-left: 0; padding: 20px 50px;">
+            <div class="timer-header">
+                <div>
+                    <h2 style="font-size: 18px;">Physics Unit 04 - MCQ Paper</h2>
+                    <span style="font-size: 12px; color: var(--text-muted);">Started at: 10:00 AM</span>
+                </div>
+                <div class="timer-display" id="examTimer">01:23:45</div>
+                <button class="btn btn-primary" onclick="confirmSubmit()">Submit Paper</button>
+            </div>
+
+            <div class="attempt-container">
+                <div class="paper-view">
+                    <div class="instruction-box">
+                        <h4><i class="fa-solid fa-circle-info"></i> Instructions</h4>
+                        <ul>
+                            <li>Total time allowed is 2 hours.</li>
+                            <li>Upload your answer scripts as a single PDF or multiple high-quality images.</li>
+                            <li>Late submissions will not be accepted after the timer hits zero.</li>
+                        </ul>
+                    </div>
+
+                    <div class="paper-content-area">
+                        <div class="section-header">
+                            <h3 class="section-title">Question Paper</h3>
+                            <button class="btn btn-secondary btn-sm"><i class="fa-solid fa-download"></i> Download PDF</button>
+                        </div>
+                        <!-- Placeholder for paper images/PDF -->
+                        <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=1000&q=80" alt="Paper Page 1" class="question-file">
+                        <img src="https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=1000&q=80" alt="Paper Page 2" class="question-file">
+                    </div>
+                </div>
+
+                <div class="submit-column">
+                    <div class="card" style="position: sticky; top: 110px;">
+                        <h3 class="section-title" style="font-size: 16px; margin-bottom: 20px;">Upload Answers</h3>
+                        
+                        <div class="upload-section">
+                            <div class="upload-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+                            <p style="font-size: 14px; font-weight: 500;">Drag & Drop Answer Scripts</p>
+                            <p style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">PDF or JPG (Max 10MB)</p>
+                            <input type="file" id="fileInput" style="display:none" multiple>
+                            <button class="btn btn-primary btn-sm" style="margin-top: 20px;" onclick="document.getElementById('fileInput').click()">Browse Files</button>
+                        </div>
+
+                        <div id="fileList" style="margin-top: 20px;">
+                            <!-- Uploaded files will appear here -->
+                        </div>
+
+                        <div style="margin-top: 30px;">
+                            <label style="font-size: 12px; font-weight: 600; margin-bottom: 8px; display: block;">Additional Notes (Optional)</label>
+                            <textarea class="btn btn-secondary" style="width: 100%; text-align: left; padding: 10px; font-size: 13px;" rows="3" placeholder="Enter any notes..."></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script>
+        function confirmSubmit() {
+            if(confirm('Are you sure you want to submit your answers?')) {
+                window.location.href = 'online-papers.html';
+            }
+        }
+        
+        // Simple countdown logic
+        let time = 3600 * 1.5; // 1.5 hours
+        const display = document.getElementById('examTimer');
+        
+        setInterval(() => {
+            let h = Math.floor(time / 3600);
+            let m = Math.floor((time % 3600) / 60);
+            let s = time % 60;
+            
+            display.textContent = `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+            if(time > 0) time--;
+        }, 1000);
+    </script>
+</body>
+</html>

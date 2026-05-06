@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Online Class | Akura Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/admin-style.css">
+</head>
+<body>
+    <div class="admin-container">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-wrapper">
+                    <div class="logo-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <span class="logo-text">Akura Admin</span>
+                </div>
+                <button class="close-sidebar" id="closeSidebar"><i class="fa-solid fa-times"></i></button>
+            </div>
+            <div class="sidebar-menu">
+                <a href="../index.html" class="menu-item"><i class="fa-solid fa-chart-pie"></i> <span>Dashboard</span></a>
+                <div class="menu-title">Management</div>
+                <a href="../students/list.html" class="menu-item"><i class="fa-solid fa-users"></i> <span>Students</span></a>
+                <a href="../batches/list.html" class="menu-item"><i class="fa-solid fa-layer-group"></i> <span>Batches</span></a>
+                <a href="../payments/list.html" class="menu-item"><i class="fa-solid fa-file-invoice-dollar"></i> <span>Payments</span></a>
+                <div class="menu-title">Academics</div>
+                <a href="../lessons/list.html" class="menu-item"><i class="fa-solid fa-video"></i> <span>Lessons</span></a>
+                <a href="../notes/list.html" class="menu-item"><i class="fa-solid fa-book"></i> <span>Notes</span></a>
+                <a href="list.html" class="menu-item active"><i class="fa-solid fa-headset"></i> <span>Online Classes</span></a>
+                <a href="../online-papers/list.html" class="menu-item"><i class="fa-solid fa-file-alt"></i> <span>Online Papers</span></a>
+                <a href="../exams/list.html" class="menu-item"><i class="fa-solid fa-pen-to-square"></i> <span>Exams</span></a>
+                <a href="../marks/list.html" class="menu-item"><i class="fa-solid fa-check-double"></i> <span>Marks</span></a>
+                <a href="../rankings/rankings.html" class="menu-item"><i class="fa-solid fa-trophy"></i> <span>Rankings</span></a>
+                <div class="menu-title">Extras</div>
+                <a href="../reminders/list.html" class="menu-item"><i class="fa-solid fa-bell"></i> <span>Reminders</span></a>
+                <a href="../timetable/timetable.html" class="menu-item"><i class="fa-solid fa-calendar-alt"></i> <span>Timetable</span></a>
+                <a href="../settings/settings.html" class="menu-item"><i class="fa-solid fa-gear"></i> <span>Settings</span></a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="navbar">
+                <div class="nav-left">
+                    <button id="toggleSidebar" class="toggle-btn"><i class="fa-solid fa-bars"></i></button>
+                    <h2 class="page-title">Add Online Class</h2>
+                </div>
+            </header>
+            
+            <div class="page-content">
+                <div class="section-header">
+                    <h2 class="section-title">Class Details</h2>
+                    <a href="list.html" class="btn btn-secondary"><i class="fa-solid fa-arrow-left"></i> Back to List</a>
+                </div>
+
+                <div class="form-container">
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <label class="form-label">Class Title</label>
+                            <input type="text" class="form-control" placeholder="e.g. Modern Physics Session 12" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Select Batch / Grade</label>
+                                <select class="form-control" required>
+                                    <option value="">Choose...</option>
+                                    <option value="2026_al">2026 A/L Science</option>
+                                    <option value="2027_al">2027 A/L Science</option>
+                                    <option value="grade_11">Grade 11</option>
+                                    <option value="grade_10">Grade 10</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Session Type</label>
+                                <select class="form-control">
+                                    <option value="live">Live Lecture</option>
+                                    <option value="revision">Revision Session</option>
+                                    <option value="paper">Paper Discussion</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Date</label>
+                                <input type="date" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Start Time</label>
+                                <input type="time" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Zoom Meeting Link</label>
+                            <input type="url" class="form-control" placeholder="https://zoom.us/j/..." required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Meeting Password (Optional)</label>
+                            <input type="text" class="form-control" placeholder="e.g. 123456">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Additional Instructions</label>
+                            <textarea class="form-control" rows="3" placeholder="Any message for students..."></textarea>
+                        </div>
+
+                        <div class="form-group" style="display: flex; align-items: center; gap: 10px; margin-bottom: 24px;">
+                            <input type="checkbox" id="notifyStudents" checked style="width: 18px; height: 18px;">
+                            <label for="notifyStudents" style="font-size: 14px; font-weight: 500; cursor: pointer;">Send Link & Notification to Students (SMS/Email)</label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                            <i class="fa-solid fa-paper-plane"></i> Schedule & Send Link
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="../js/admin-script.js"></script>
+</body>
+</html>

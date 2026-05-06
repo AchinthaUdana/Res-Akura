@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attempt Exam | Akura Student</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .exam-header {
+            position: sticky;
+            top: 0;
+            background: white;
+            padding: 20px 40px;
+            border-bottom: 1px solid var(--glass-border);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .exam-timer {
+            background: #fef2f2;
+            color: #ef4444;
+            padding: 8px 16px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 20px;
+            font-family: monospace;
+            border: 1px solid #fee2e2;
+        }
+        .exam-content {
+            max-width: 800px;
+            margin: 40px auto;
+            padding-bottom: 100px;
+        }
+        .question-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: var(--glass-shadow);
+            margin-bottom: 24px;
+            border: 1px solid var(--glass-border);
+        }
+        .question-text { font-size: 16px; font-weight: 500; margin-bottom: 20px; line-height: 1.6; }
+        .options-list { display: flex; flex-direction: column; gap: 12px; }
+        .option-label {
+            padding: 14px 20px;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+        }
+        .option-label:hover { background: #f8fafc; border-color: var(--primary-color); }
+        .option-input { display: none; }
+        .option-input:checked + .option-label {
+            background: rgba(79, 70, 229, 0.05);
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        .exam-footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 20px 40px;
+            border-top: 1px solid var(--glass-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="exam-header">
+        <div>
+            <h2 style="font-size: 18px;">Physics - Monthly Test 05</h2>
+            <span style="font-size: 12px; color: var(--text-muted);">Question 1 of 30</span>
+        </div>
+        <div class="exam-timer" id="timer">59:59</div>
+        <button class="btn btn-primary" onclick="submitExam()">Finish Attempt</button>
+    </div>
+
+    <div class="exam-content">
+        <!-- Question 1 -->
+        <div class="question-card">
+            <p class="question-text">1. Which of the following is the correct SI unit for electric current?</p>
+            <div class="options-list">
+                <input type="radio" name="q1" id="q1a" class="option-input">
+                <label for="q1a" class="option-label">A) Volt (V)</label>
+                
+                <input type="radio" name="q1" id="q1b" class="option-input">
+                <label for="q1b" class="option-label">B) Ampere (A)</label>
+                
+                <input type="radio" name="q1" id="q1c" class="option-input">
+                <label for="q1c" class="option-label">C) Ohm (Ω)</label>
+                
+                <input type="radio" name="q1" id="q1d" class="option-input">
+                <label for="q1d" class="option-label">D) Watt (W)</label>
+            </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="question-card">
+            <p class="question-text">2. According to Newton's Second Law of Motion, the force applied on an object is equal to the product of its mass and its:</p>
+            <div class="options-list">
+                <input type="radio" name="q2" id="q2a" class="option-input">
+                <label for="q2a" class="option-label">A) Velocity</label>
+                
+                <input type="radio" name="q2" id="q2b" class="option-input">
+                <label for="q2b" class="option-label">B) Displacement</label>
+                
+                <input type="radio" name="q2" id="q2c" class="option-input">
+                <label for="q2c" class="option-label">C) Acceleration</label>
+                
+                <input type="radio" name="q2" id="q2d" class="option-input">
+                <label for="q2d" class="option-label">D) Momentum</label>
+            </div>
+        </div>
+        
+        <div style="display: flex; justify-content: center; margin-top: 40px;">
+            <button class="btn btn-secondary">Next Question <i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+    </div>
+
+    <div class="exam-footer">
+        <div style="display: flex; gap: 8px;">
+            <div style="width: 10px; height: 10px; border-radius: 50%; background: var(--primary-color);"></div>
+            <div style="width: 10px; height: 10px; border-radius: 50%; background: #e2e8f0;"></div>
+            <div style="width: 10px; height: 10px; border-radius: 50%; background: #e2e8f0;"></div>
+            <span style="font-size: 12px; color: var(--text-muted); margin-left: 10px;">Progress: 2/30 Answered</span>
+        </div>
+        <div style="display: flex; gap: 16px;">
+            <button class="btn btn-secondary">Save as Draft</button>
+            <button class="btn btn-primary" onclick="submitExam()">Submit Exam</button>
+        </div>
+    </div>
+
+    <script>
+        function submitExam() {
+            if(confirm('Are you sure you want to finish and submit the exam?')) {
+                window.location.href = 'marks.html';
+            }
+        }
+        
+        let timeLeft = 3600; // 60 minutes
+        const timerDisplay = document.getElementById('timer');
+        
+        setInterval(() => {
+            let mins = Math.floor(timeLeft / 60);
+            let secs = timeLeft % 60;
+            timerDisplay.textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+            if(timeLeft > 0) timeLeft--;
+        }, 1000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Stream - Akura LMS</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="public/css/auth.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Sinhala:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="auth-centered">
+        <div class="auth-card">
+            <div class="auth-header">
+                <a href="index.html" class="logo">
+                    <i class="fa-solid fa-graduation-cap"></i> Akura
+                </a>
+                <h2 class="auth-title">Select Your Stream</h2>
+                <p class="auth-subtitle">Choose your academic path to access personalized materials and classes.</p>
+            </div>
+
+            <!-- Alert for selection error -->
+            <div id="streamAlert" class="alert alert-error">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <span id="streamAlertText">Please select a stream to continue.</span>
+            </div>
+
+            <div class="stream-grid">
+                <!-- O/L Card -->
+                <div class="stream-card" id="cardOL" onclick="selectStream('OL')">
+                    <div class="stream-icon bg-purple-light text-purple">
+                        <i class="fa-solid fa-book"></i>
+                    </div>
+                    <h3>Ordinary Level (O/L)</h3>
+                    <p>Access Grade 10 & 11 syllabus coverage, model paper discussions, and essay writing techniques.</p>
+                    <button class="btn btn-outline w-100" id="btnOL">Select O/L</button>
+                </div>
+
+                <!-- A/L Card -->
+                <div class="stream-card" id="cardAL" onclick="selectStream('AL')">
+                    <div class="stream-icon bg-orange-light text-orange">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <h3>Advanced Level (A/L)</h3>
+                    <p>Dive deep into advanced literary texts, critical analysis, and prepare for university entrance.</p>
+                    <button class="btn btn-outline w-100" id="btnAL">Select A/L</button>
+                </div>
+            </div>
+
+            <div style="margin-top: 40px; text-align: center;">
+                <button class="btn btn-primary btn-large w-100" id="continueBtn" style="max-width: 300px; display: none;">
+                    Continue to Dashboard <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+            
+            <div class="auth-footer">
+                Need help? <a href="index.html#contact" class="auth-link">Contact Support</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="public/js/auth.js"></script>
+</body>
+</html>

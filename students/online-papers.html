@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Papers | Akura Student</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .paper-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--border-radius);
+            padding: 24px;
+            box-shadow: var(--glass-shadow);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .paper-card:hover { transform: translateY(-5px); }
+        .paper-status {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        .paper-info h3 { font-size: 18px; margin-bottom: 8px; }
+        .paper-meta { display: flex; gap: 20px; font-size: 13px; color: var(--text-muted); }
+        .paper-meta span { display: flex; align-items: center; gap: 6px; }
+        .paper-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 10px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+        .timer-badge {
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--danger-color);
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .timer-badge.upcoming { background: rgba(59, 130, 246, 0.1); color: var(--info-color); }
+        
+        .papers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="student-container">
+        <!-- Sidebar (Same as Dashboard) -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-wrapper">
+                    <div class="logo-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <span class="logo-text">Akura LMS</span>
+                </div>
+            </div>
+            <div class="sidebar-menu">
+                <a href="index.html" class="menu-item"><i class="fa-solid fa-house"></i> <span>Dashboard</span></a>
+                <a href="profile.html" class="menu-item"><i class="fa-solid fa-user"></i> <span>Profile</span></a>
+                <a href="payments.html" class="menu-item"><i class="fa-solid fa-credit-card"></i> <span>Payments</span></a>
+                <div class="menu-title">Academic</div>
+                <a href="lessons.html" class="menu-item"><i class="fa-solid fa-play"></i> <span>Lessons</span></a>
+                <a href="notes.html" class="menu-item"><i class="fa-solid fa-file-pdf"></i> <span>Notes</span></a>
+                <a href="online-classes.html" class="menu-item"><i class="fa-solid fa-headset"></i> <span>Online Classes</span></a>
+                <a href="online-papers.html" class="menu-item active"><i class="fa-solid fa-file-lines"></i> <span>Online Papers</span></a>
+                <a href="exams.html" class="menu-item"><i class="fa-solid fa-pen-to-square"></i> <span>Exams</span></a>
+                <div class="menu-title">Performance</div>
+                <a href="marks.html" class="menu-item"><i class="fa-solid fa-chart-simple"></i> <span>Marks</span></a>
+                <a href="rankings.html" class="menu-item"><i class="fa-solid fa-trophy"></i> <span>Rankings</span></a>
+                <div class="menu-title">Utilities</div>
+                <a href="timetable.html" class="menu-item"><i class="fa-solid fa-calendar-days"></i> <span>Timetable</span></a>
+                <a href="notifications.html" class="menu-item"><i class="fa-solid fa-bell"></i> <span>Notifications</span></a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="navbar">
+                <div class="nav-left">
+                    <button id="toggleSidebar" class="toggle-btn"><i class="fa-solid fa-bars"></i></button>
+                    <h2 class="page-title">Online Papers</h2>
+                </div>
+                <div class="nav-right">
+                    <div class="nav-item profile-dropdown">
+                        <img src="https://ui-avatars.com/api/?name=Nuwan+Pradeep&background=4f46e5&color=fff" alt="Nuwan" class="profile-img">
+                        <div class="profile-info">
+                            <span class="student-name">Nuwan Pradeep</span>
+                            <span class="student-id">#AKU-000001</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-down drop-icon"></i>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="page-content">
+                <div class="section-header">
+                    <h2 class="section-title">Available Papers</h2>
+                </div>
+
+                <div class="papers-grid">
+                    <!-- Active Paper -->
+                    <div class="paper-card">
+                        <span class="status-badge status-active paper-status">Active</span>
+                        <div class="paper-info">
+                            <h3>Physics Unit 04 - MCQ Paper</h3>
+                            <div class="paper-meta">
+                                <span><i class="fa-solid fa-clock"></i> 2 Hours</span>
+                                <span><i class="fa-solid fa-list-check"></i> 50 Questions</span>
+                            </div>
+                        </div>
+                        <p style="font-size: 13px; color: var(--text-muted);">Please download the question paper and upload your answer script before the deadline.</p>
+                        <div class="paper-footer">
+                            <div class="timer-badge">
+                                <i class="fa-solid fa-stopwatch"></i>
+                                <span>Ends in: 01:24:05</span>
+                            </div>
+                            <a href="paper-view.html" class="btn btn-primary btn-sm">Attempt Now</a>
+                        </div>
+                    </div>
+
+                    <!-- Upcoming Paper -->
+                    <div class="paper-card">
+                        <span class="status-badge status-pending paper-status">Upcoming</span>
+                        <div class="paper-info">
+                            <h3>Combined Maths - Term Test</h3>
+                            <div class="paper-meta">
+                                <span><i class="fa-solid fa-clock"></i> 3 Hours</span>
+                                <span><i class="fa-solid fa-calendar"></i> May 15, 2026</span>
+                            </div>
+                        </div>
+                        <div class="paper-footer">
+                            <div class="timer-badge upcoming">
+                                <i class="fa-solid fa-calendar-day"></i>
+                                <span>Starts in: 10 Days</span>
+                            </div>
+                            <button class="btn btn-secondary btn-sm" disabled>Locked</button>
+                        </div>
+                    </div>
+
+                    <!-- Closed Paper -->
+                    <div class="paper-card" style="opacity: 0.8;">
+                        <span class="status-badge status-closed paper-status">Closed</span>
+                        <div class="paper-info">
+                            <h3>Chemistry Unit 02 - Essay</h3>
+                            <div class="paper-meta">
+                                <span><i class="fa-solid fa-clock"></i> 1.5 Hours</span>
+                                <span><i class="fa-solid fa-check"></i> Submitted</span>
+                            </div>
+                        </div>
+                        <div class="paper-footer">
+                            <span style="font-size: 12px; color: var(--text-muted);">Closed on May 02</span>
+                            <a href="#" class="btn btn-secondary btn-sm">View Result</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>

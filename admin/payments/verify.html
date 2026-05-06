@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Payment | Akura Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/admin-style.css">
+</head>
+<body>
+    <div class="admin-container">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-wrapper">
+                    <div class="logo-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <span class="logo-text">Akura Admin</span>
+                </div>
+                <button class="close-sidebar" id="closeSidebar"><i class="fa-solid fa-times"></i></button>
+            </div>
+            <div class="sidebar-menu">
+                <a href="../index.html" class="menu-item"><i class="fa-solid fa-chart-pie"></i> <span>Dashboard</span></a>
+                <div class="menu-title">Management</div>
+                <a href="../students/list.html" class="menu-item"><i class="fa-solid fa-users"></i> <span>Students</span></a>
+                <a href="../batches/list.html" class="menu-item"><i class="fa-solid fa-layer-group"></i> <span>Batches</span></a>
+                <a href="../payments/list.html" class="menu-item active"><i class="fa-solid fa-file-invoice-dollar"></i> <span>Payments</span></a>
+                <div class="menu-title">Academics</div>
+                <a href="../lessons/list.html" class="menu-item"><i class="fa-solid fa-video"></i> <span>Lessons</span></a>
+                <a href="../notes/list.html" class="menu-item"><i class="fa-solid fa-book"></i> <span>Notes</span></a>
+                <a href="../online-papers/list.html" class="menu-item"><i class="fa-solid fa-file-alt"></i> <span>Online Papers</span></a>
+                <a href="../exams/list.html" class="menu-item"><i class="fa-solid fa-pen-to-square"></i> <span>Exams</span></a>
+                <a href="../marks/list.html" class="menu-item"><i class="fa-solid fa-check-double"></i> <span>Marks</span></a>
+                <a href="../rankings/rankings.html" class="menu-item"><i class="fa-solid fa-trophy"></i> <span>Rankings</span></a>
+                <div class="menu-title">Extras</div>
+                <a href="../reminders/list.html" class="menu-item"><i class="fa-solid fa-bell"></i> <span>Reminders</span></a>
+                <a href="../timetable/timetable.html" class="menu-item"><i class="fa-solid fa-calendar-alt"></i> <span>Timetable</span></a>
+                <a href="../settings/settings.html" class="menu-item"><i class="fa-solid fa-gear"></i> <span>Settings</span></a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="navbar">
+                <div class="nav-left">
+                    <button id="toggleSidebar" class="toggle-btn"><i class="fa-solid fa-bars"></i></button>
+                    <h2 class="page-title">Payments</h2>
+                </div>
+                <div class="nav-right">
+                    <div class="nav-item profile-dropdown">
+                        <img src="https://ui-avatars.com/api/?name=Admin+User&background=0D8ABC&color=fff" alt="Admin" class="profile-img">
+                        <div class="profile-info">
+                            <span class="admin-name">Admin User</span>
+                            <span class="admin-role">Super Admin</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-down drop-icon"></i>
+                        <div class="dropdown-menu">
+                            <a href="../login.html" class="logout-btn"><i class="fa-solid fa-sign-out-alt"></i> Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="page-content">
+                <div class="section-header">
+                    <h2 class="section-title">Verify Payment</h2>
+                    <a href="list.html" class="btn btn-secondary"><i class="fa-solid fa-arrow-left"></i> Back to List</a>
+                </div>
+
+                <div class="form-container" style="max-width: 900px;">
+                    <div class="dashboard-grid" style="gap: 32px;">
+                        
+                        <div>
+                            <h3 style="margin-bottom: 16px; font-size: 16px;">Payment Slip</h3>
+                            <div style="width: 100%; height: 400px; background: #e2e8f0; border-radius: 16px; display: flex; align-items: center; justify-content: center; overflow: hidden; border: 1px solid var(--border-color);">
+                                <img src="https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?auto=format&fit=crop&w=800&q=80" alt="Slip" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 style="margin-bottom: 16px; font-size: 16px;">Payment Details</h3>
+                            <div style="background: rgba(255,255,255,0.5); padding: 20px; border-radius: 16px; margin-bottom: 24px;">
+                                <p style="margin-bottom: 8px;"><strong>Student:</strong> Nuwan Pradeep (#STU-1001)</p>
+                                <p style="margin-bottom: 8px;"><strong>Batch:</strong> 2026 A/L</p>
+                                <p style="margin-bottom: 8px;"><strong>Month:</strong> May 2026</p>
+                                <p style="margin-bottom: 8px;"><strong>Uploaded On:</strong> May 5, 2026 - 10:30 AM</p>
+                            </div>
+
+                            <form action="#" method="POST">
+                                <div class="form-group">
+                                    <label class="form-label">Admin Remarks (Optional)</label>
+                                    <textarea class="form-control" rows="3" placeholder="Enter any notes about this payment..."></textarea>
+                                </div>
+                                
+                                <div style="display: flex; gap: 16px; margin-top: 24px;">
+                                    <button type="submit" class="btn btn-success" style="flex: 1; justify-content: center;"><i class="fa-solid fa-check"></i> Approve</button>
+                                    <button type="button" class="btn btn-danger" style="flex: 1; justify-content: center;"><i class="fa-solid fa-times"></i> Reject</button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="../js/admin-script.js"></script>
+</body>
+</html>

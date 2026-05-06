@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings | Akura Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/admin-style.css">
+</head>
+<body>
+    <div class="admin-container">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-wrapper">
+                    <div class="logo-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <span class="logo-text">Akura Admin</span>
+                </div>
+                <button class="close-sidebar" id="closeSidebar"><i class="fa-solid fa-times"></i></button>
+            </div>
+            <div class="sidebar-menu">
+                <a href="../index.html" class="menu-item"><i class="fa-solid fa-chart-pie"></i> <span>Dashboard</span></a>
+                <div class="menu-title">Management</div>
+                <a href="../students/list.html" class="menu-item"><i class="fa-solid fa-users"></i> <span>Students</span></a>
+                <a href="../batches/list.html" class="menu-item"><i class="fa-solid fa-layer-group"></i> <span>Batches</span></a>
+                <a href="../payments/list.html" class="menu-item"><i class="fa-solid fa-file-invoice-dollar"></i> <span>Payments</span></a>
+                <div class="menu-title">Academics</div>
+                <a href="../lessons/list.html" class="menu-item"><i class="fa-solid fa-video"></i> <span>Lessons</span></a>
+                <a href="../notes/list.html" class="menu-item"><i class="fa-solid fa-book"></i> <span>Notes</span></a>
+                <a href="../online-papers/list.html" class="menu-item"><i class="fa-solid fa-file-alt"></i> <span>Online Papers</span></a>
+                <a href="../exams/list.html" class="menu-item"><i class="fa-solid fa-pen-to-square"></i> <span>Exams</span></a>
+                <a href="../marks/list.html" class="menu-item"><i class="fa-solid fa-check-double"></i> <span>Marks</span></a>
+                <a href="../rankings/rankings.html" class="menu-item"><i class="fa-solid fa-trophy"></i> <span>Rankings</span></a>
+                <div class="menu-title">Extras</div>
+                <a href="../reminders/list.html" class="menu-item"><i class="fa-solid fa-bell"></i> <span>Reminders</span></a>
+                <a href="../timetable/timetable.html" class="menu-item"><i class="fa-solid fa-calendar-alt"></i> <span>Timetable</span></a>
+                <a href="../settings/settings.html" class="menu-item active"><i class="fa-solid fa-gear"></i> <span>Settings</span></a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="navbar">
+                <div class="nav-left">
+                    <button id="toggleSidebar" class="toggle-btn"><i class="fa-solid fa-bars"></i></button>
+                    <h2 class="page-title">Settings</h2>
+                </div>
+                <div class="nav-right">
+                    <div class="nav-item profile-dropdown">
+                        <img src="https://ui-avatars.com/api/?name=Admin+User&background=0D8ABC&color=fff" alt="Admin" class="profile-img">
+                        <div class="profile-info">
+                            <span class="admin-name">Admin User</span>
+                            <span class="admin-role">Super Admin</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-down drop-icon"></i>
+                        <div class="dropdown-menu">
+                            <a href="../login.html" class="logout-btn"><i class="fa-solid fa-sign-out-alt"></i> Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="page-content">
+                <div class="section-header">
+                    <h2 class="section-title">Admin Settings</h2>
+                </div>
+
+                <div class="form-container">
+                    <form action="#" method="POST">
+                        <h3 style="font-size: 16px; margin-bottom: 16px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px;">Profile Information</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Name</label>
+                                <input type="text" class="form-control" value="Admin User" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-control" value="admin@akura.com" required>
+                            </div>
+                        </div>
+
+                        <h3 style="font-size: 16px; margin-bottom: 16px; margin-top: 24px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px;">Change Password</h3>
+                        <div class="form-group">
+                            <label class="form-label">Current Password</label>
+                            <input type="password" class="form-control" placeholder="Enter current password">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">New Password</label>
+                                <input type="password" class="form-control" placeholder="New password">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Confirm New Password</label>
+                                <input type="password" class="form-control" placeholder="Confirm new password">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="margin-top: 20px;">
+                            <i class="fa-solid fa-save"></i> Save Changes
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="../js/admin-script.js"></script>
+</body>
+</html>

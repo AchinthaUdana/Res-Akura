@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exams | Akura Student</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .exam-card {
+            background: white;
+            border-radius: 20px;
+            padding: 24px;
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+        .exam-card:hover { transform: scale(1.01); border-color: var(--primary-color); }
+        .exam-info { display: flex; align-items: center; gap: 24px; }
+        .exam-icon {
+            width: 60px;
+            height: 60px;
+            background: #f8fafc;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--primary-color);
+        }
+        .exam-meta { display: flex; gap: 20px; font-size: 13px; color: var(--text-muted); margin-top: 5px; }
+        .exam-meta span { display: flex; align-items: center; gap: 6px; }
+    </style>
+</head>
+<body>
+    <div class="student-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-wrapper">
+                    <div class="logo-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <span class="logo-text">Akura LMS</span>
+                </div>
+            </div>
+            <div class="sidebar-menu">
+                <a href="index.html" class="menu-item"><i class="fa-solid fa-house"></i> <span>Dashboard</span></a>
+                <a href="profile.html" class="menu-item"><i class="fa-solid fa-user"></i> <span>Profile</span></a>
+                <a href="payments.html" class="menu-item"><i class="fa-solid fa-credit-card"></i> <span>Payments</span></a>
+                <div class="menu-title">Academic</div>
+                <a href="lessons.html" class="menu-item"><i class="fa-solid fa-play"></i> <span>Lessons</span></a>
+                <a href="notes.html" class="menu-item"><i class="fa-solid fa-file-pdf"></i> <span>Notes</span></a>
+                <a href="online-classes.html" class="menu-item"><i class="fa-solid fa-headset"></i> <span>Online Classes</span></a>
+                <a href="online-papers.html" class="menu-item"><i class="fa-solid fa-file-lines"></i> <span>Online Papers</span></a>
+                <a href="exams.html" class="menu-item active"><i class="fa-solid fa-pen-to-square"></i> <span>Exams</span></a>
+                <div class="menu-title">Performance</div>
+                <a href="marks.html" class="menu-item"><i class="fa-solid fa-chart-simple"></i> <span>Marks</span></a>
+                <a href="rankings.html" class="menu-item"><i class="fa-solid fa-trophy"></i> <span>Rankings</span></a>
+                <div class="menu-title">Utilities</div>
+                <a href="timetable.html" class="menu-item"><i class="fa-solid fa-calendar-days"></i> <span>Timetable</span></a>
+                <a href="notifications.html" class="menu-item"><i class="fa-solid fa-bell"></i> <span>Notifications</span></a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="navbar">
+                <div class="nav-left">
+                    <button id="toggleSidebar" class="toggle-btn"><i class="fa-solid fa-bars"></i></button>
+                    <h2 class="page-title">Term Exams</h2>
+                </div>
+            </header>
+            
+            <div class="page-content">
+                <div class="section-header">
+                    <h2 class="section-title">Active Exams</h2>
+                </div>
+
+                <div class="exam-list">
+                    <!-- Exam 1 -->
+                    <div class="exam-card">
+                        <div class="exam-info">
+                            <div class="exam-icon"><i class="fa-solid fa-file-signature"></i></div>
+                            <div>
+                                <h3 style="font-size: 17px; font-weight: 600;">Physics - Monthly Test 05</h3>
+                                <div class="exam-meta">
+                                    <span><i class="fa-solid fa-clock"></i> 60 Mins</span>
+                                    <span><i class="fa-solid fa-circle-question"></i> 30 MCQ</span>
+                                    <span><i class="fa-solid fa-calendar"></i> May 10, 2026</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="exam-attempt.html" class="btn btn-primary">Start Exam <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+
+                    <!-- Exam 2 -->
+                    <div class="exam-card">
+                        <div class="exam-info">
+                            <div class="exam-icon" style="color: var(--secondary-color);"><i class="fa-solid fa-vial"></i></div>
+                            <div>
+                                <h3 style="font-size: 17px; font-weight: 600;">Chemistry Unit Test - Organic</h3>
+                                <div class="exam-meta">
+                                    <span><i class="fa-solid fa-clock"></i> 45 Mins</span>
+                                    <span><i class="fa-solid fa-circle-question"></i> 25 MCQ</span>
+                                    <span><i class="fa-solid fa-calendar"></i> May 12, 2026</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-secondary" disabled>Locked Until May 12</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>
